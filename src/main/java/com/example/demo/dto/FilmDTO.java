@@ -1,19 +1,9 @@
-package com.example.demo.model;
+package com.example.demo.dto;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "films")
-public class FilmModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class FilmDTO {
     private Long id;
-
     private String title;
-
-    @ManyToOne
-    @JoinColumn(name = "genre_id")
-    private GenreModel genre;
+    private GenreDTO genre;
 
     public Long getId() {
         return id;
@@ -31,11 +21,11 @@ public class FilmModel {
         this.title = title;
     }
 
-    public GenreModel getGenre() {
+    public GenreDTO getGenre() {
         return genre;
     }
 
-    public void setGenre(GenreModel genre) {
+    public void setGenre(GenreDTO genre) {
         this.genre = genre;
     }
 }
